@@ -107,7 +107,7 @@ const PostController = {
             res.status(404).json({error: 'Пост не найден'})
         }
 
-        if (post.authorId !== req.user.id) {
+        if (post.authorId !== req.user.userId) {
 
             return res.status(403).json({error: 'Нет доступа'})
 
