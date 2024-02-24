@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const { UserController } = require('../controllers');
+const authenticateToken = require('../middlewares/auth');
 
 const uploadDestination = 'uploads';
 
@@ -17,9 +18,9 @@ const uploads = multer({storage: storage})
 
 
 router.post('/register', UserController.register)
-router.get('/login', UserController.login)
-router.post('/current', UserController.currentUser)
-router.post('/users/:id', UserController.login)
-router.post('/users/:id', UserController.updateUser)
+router.post('/login', UserController.login)
+router.get('/current', authenticateToken, UserController.currentUser)
+router.get('/users/:id', authenticateToken, UserController.login)
+router.put('/users/:id', authenticateToken, UserController.updateUser)
 
 module.exports = router;
