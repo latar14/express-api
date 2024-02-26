@@ -8,7 +8,7 @@ services:
       - db
       - react-app
     environment:
-      DATABASE_URL: 'mongodb://monty:pass@db:27017/mydatabase?authSource=admin&directConnection=true'
+      DATABASE_URL: 'mongodb+srv://latar14:said-akhmed@cluster0.ezxqi.mongodb.net/newApp?authSource=admin&directConnection=true'
  db: # База данных
     image: prismagraphql/mongo-single-replica:5.0.3
     ports:
