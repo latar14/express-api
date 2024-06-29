@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('view engine', 'jade');
 
-//Раздача статических файлов из папки uploads
+//Раздача статических файлов из uploads
 app.use('/uploads', express.static('uploads'))
 
 app.use('/api', require('./routes'))
